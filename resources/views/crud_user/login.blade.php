@@ -2,6 +2,7 @@
 
 @section('content')
     <main class="login-form">
+        
         <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
             <div class="col-md-5">
                 <div class="card shadow-lg border-0 rounded-lg">
@@ -19,7 +20,13 @@
                                     <small class="text-danger">{{ $errors->first('email') }}</small>
                                 @endif
                             </div>
-
+                            <div class="form-group mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" class="form-control rounded-pill px-3" name="email" required autofocus>
+                                @if ($errors->has('email'))
+                                    <small class="text-danger">{{ $errors->first('email') }}</small>
+                                @endif
+                            </div>
                             <div class="form-group mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" id="password" class="form-control rounded-pill px-3" name="password" required>
@@ -43,6 +50,8 @@
                             </div>
                         </form>
                     </div>
+
+
                     <div class="card-footer text-center py-3">
                         <p class="small mb-0">Don't have an account? <a href="create" class="text-primary">Sign up</a></p>
                     </div>
