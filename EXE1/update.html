@@ -1,86 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Page</title>
-    <link rel="stylesheet" href="/public/css/update.css">
-    <style>
-        body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-}
+@extends('dashboard')
 
-.container {
-    width: 50%;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+@section('content')
+    <main class="update-user-form">
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card shadow-lg border-0 rounded-lg">
+                        <div class="card-header bg-warning text-white text-center py-4">
+                            <h3 class="mb-0">Update User</h3>
+                        </div>
+                        <div class="card-body">
+                            <form action="{{ route('user.postUpdateUser') }}" method="POST">
+                                @csrf
+                                <input name="id" type="hidden" value="{{ $user->id }}">
 
-h1 {
-    text-align: center;
-}
+                                <div class="form-group mb-3">
+                                    <input type="text" placeholder="Name" id="name" class="form-control" name="name"
+                                           value="{{ $user->name }}" required autofocus>
+                                    @if ($errors->has('name'))
+                                        <span class="text-danger">{{ $errors->first('name') }}</span>
+                                    @endif
+                                </div>
 
-form {
-    margin-top: 20px;
-}
+                                <div class="form-group mb-3">
+                                    <input type="text" placeholder="Email" id="email_address" class="form-control"
+                                           value="{{ $user->email }}" name="email" required autofocus>
+                                    @if ($errors->has('email'))
+                                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    @endif
+                                </div>
 
-label {
-    display: block;
-    margin-bottom: 5px;
-}
+                                <div class="form-group mb-3">
+                                    <input type="password" placeholder="Password" id="password" class="form-control"
+                                           name="password" required>
+                                    @if ($errors->has('password'))
+                                        <span class="text-danger">{{ $errors->first('password') }}</span>
+                                    @endif
+                                </div>
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #45a049;
-}
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <h1>Update</h1>
-        <form action="#" method="POST">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username">
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password">
-
-            <label for="password">Nhập lại Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password">
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email">
-
-            
-            <input type="submit" value="Update">
-        </form>
-    </div>
-</body>
-</html>
+                                <div class="d-grid mx-auto">
+                                    <button type="submit" class="btn btn-primary btn-block">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+@endsection
