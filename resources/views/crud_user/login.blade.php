@@ -19,14 +19,7 @@
                                 @if ($errors->has('email'))
                                     <small class="text-danger">{{ $errors->first('email') }}</small>
                                 @endif
-                            </div>
-                            <div class="form-group mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" id="email" class="form-control rounded-pill px-3" name="email" required autofocus>
-                                @if ($errors->has('email'))
-                                    <small class="text-danger">{{ $errors->first('email') }}</small>
-                                @endif
-                            </div>
+                            
                             <div class="form-group mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" id="password" class="form-control rounded-pill px-3" name="password" required>
