@@ -29,6 +29,7 @@ class CrudUserController extends Controller
     {
         $request->validate([
             'email' => 'required',
+
             'password' => 'required',
         ]);
 
@@ -57,6 +58,8 @@ class CrudUserController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'age' => 'required',
+            'fb' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
@@ -64,6 +67,8 @@ class CrudUserController extends Controller
         $data = $request->all();
         $check = User::create([
             'name' => $data['name'],
+            'age' => $data['age'],
+            'fb' => $data['fb'],
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
         ]);
@@ -111,12 +116,16 @@ class CrudUserController extends Controller
 
         $request->validate([
             'name' => 'required',
+            'age' => 'required',
+            'fb' => 'required',
             'email' => 'required|email|unique:users,id,'.$input['id'],
             'password' => 'required|min:6',
         ]);
 
        $user = User::find($input['id']);
        $user->name = $input['name'];
+       $user->name = $input['age'];
+       $user->name = $input['fb'];
        $user->email = $input['email'];
        $user->password = $input['password'];
        $user->save();
