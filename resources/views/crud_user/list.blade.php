@@ -16,6 +16,7 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Role</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -25,6 +26,17 @@
                                             <td>{{ $user->id }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
+                                            <td>
+                                            @foreach($user->roles as $role)
+                                        <a href="{{ route('user.role', ['id' => $role->id]) }}">
+                                            {{ $role->name . '-' }}
+                                        </a>
+                                    @endforeach
+
+                                            </td>
+                                            
+                                
+                                            
                                             <td class="text-center">
                                                 <a href="{{ route('user.readUser', ['id' => $user->id]) }}" class="btn btn-info btn-sm">
                                                     <i class="fas fa-eye"></i> View
@@ -39,7 +51,10 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
+                               
                             </table>
+                            {!! $users->withQueryString()->links('pagination::bootstrap-5') !!}
+
                         </div>
                         <div class="card-footer text-center">
                             <p class="mb-0">Manage users efficiently with this interface</p>

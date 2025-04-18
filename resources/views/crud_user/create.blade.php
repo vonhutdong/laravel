@@ -21,21 +21,7 @@
                                 @endif
                             </div>
 
-                            <div class="form-group mb-3">
-                                <label for="age" class="form-label">Age</label>
-                                <input type="text" id="name" class="form-control rounded-pill px-3" name="age" required autofocus>
-                                @if ($errors->has('age'))
-                                    <small class="text-danger">{{ $errors->first('age') }}</small>
-                                @endif
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label for="fb" class="form-label">FB</label>
-                                <input type="text" id="fb" class="form-control rounded-pill px-3" name="fb" required autofocus>
-                                @if ($errors->has('fb'))
-                                    <small class="text-danger">{{ $errors->first('fb') }}</small>
-                                @endif
-                            </div>
+                        
 
                             <div class="form-group mb-3">
                                 <label for="email_address" class="form-label">Email Address</label>
