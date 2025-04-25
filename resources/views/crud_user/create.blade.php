@@ -2,7 +2,7 @@
 
 @section('content')
     <main class="signup-form">
-<<<<<<< Updated upstream
+
         <div class="cotainer">
             <div class="row justify-content-center">
                 <div class="col-md-4">
@@ -37,7 +37,7 @@
                                 </div>
                             </form>
                         </div>
-=======
+
         <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
             <div class="col-md-5">
                 <div class="card shadow-lg border-0 rounded-lg">
@@ -82,7 +82,6 @@
                     </div>
                     <div class="card-footer text-center py-3">
                         <p class="small mb-0">Already have an account? <a href="#" class="text-success">Login</a></p>
->>>>>>> Stashed changes
                     </div>
                 </div>
             </div>

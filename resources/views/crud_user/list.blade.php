@@ -16,6 +16,8 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Order</th>
+
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -25,6 +27,15 @@
                                             <td>{{ $user->id }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
+                                            <td>
+                                        @foreach($orders as $order)
+                                        @if($order->user_id ==$user->id)
+                                        <a href="{{ route('order.detail', ['order_id' => $order->id]) }}">{{ $order->id }}</a>
+                                        <br>
+                                        @endif
+                                        @endforeach
+
+                                    </td>
                                             <td class="text-center">
                                                 <a href="{{ route('user.readUser', ['id' => $user->id]) }}" class="btn btn-info btn-sm">
                                                     <i class="fas fa-eye"></i> View
